@@ -11,11 +11,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Images\icon1.png" />
+    <None Remove="Assets\Images\icon2.png" />
+    <None Remove="Assets\Images\icon3.png" />
     <None Remove="Assets\Images\img1.png" />
+    <None Remove="Assets\Images\img2.png" />
+    <None Remove="Assets\Images\img3.png" />
+    <None Remove="Assets\Images\img4.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Assets\Images\icon1.png" />
+    <EmbeddedResource Include="Assets\Images\icon2.png" />
+    <EmbeddedResource Include="Assets\Images\icon3.png" />
     <EmbeddedResource Include="Assets\Images\img1.png" />
+    <EmbeddedResource Include="Assets\Images\img2.png" />
+    <EmbeddedResource Include="Assets\Images\img3.png" />
+    <EmbeddedResource Include="Assets\Images\img4.png" />
   </ItemGroup>
 
   <ItemGroup>

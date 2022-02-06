@@ -1,13 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinApp_POC1.MainPage">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:XamarinApp_POC1.ViewModels" x:Class="XamarinApp_POC1.MainPage">
 
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+    
     <StackLayout>
         <Label Text="Discover" TextColor="#000000" FontSize="24" FontAttributes="Bold" Margin="15" />
 
-        <Image x:Name="Image1"  />
-        
+        <CarouselView ItemsSource="{Binding Places}" HeightRequest="300" PeekAreaInsets="100">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame HeightRequest="280" WidthRequest="180" BackgroundColor="White" Padding="0" HasShadow="true" Margin="10" CornerRadius="10" HorizontalOptions="CenterAndExpand">
+
+                        <Grid>
+                            <StackLayout BackgroundColor="Black">
+                                <Image Source="{Binding ImageSrc}" HeightRequest="250" Opacity="0.6" Aspect="AspectFill" />
+                            </StackLayout>
+                            <StackLayout Margin="0,0,0,10">
+
+                                <Image Source="{Binding HeaderTargetImage}" HeightRequest="50" Aspect="AspectFit" HorizontalOptions="EndAndExpand" Margin="10,0" />
+                                <Label Text="{Binding Title}" TextColor="White" FontSize="18" FontAttributes="None" Margin="15,0" VerticalOptions="EndAndExpand" />
+
+                                <StackLayout Orientation="Horizontal" Margin="15,-8,0,0">
+                                    <Image Source="{Binding MapTargetImage}" HeightRequest="20" Margin="-5,0" Aspect="AspectFit" />
+                                    <Label Text="{Binding Country}" TextColor="White" FontSize="14" FontAttributes="None" VerticalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
     </StackLayout>
 
 </ContentPage>
